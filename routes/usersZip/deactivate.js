@@ -7,8 +7,8 @@ function deactivateUsersZip(uid, zip) {
         if (uid === undefined || zip === undefined) {
             reject(new Error("UID or Zip not defined"));
         } else {
-            firebase.database().ref('usersZip/' + uid + '/' + zip).update({
-                activated: true
+            firebase.database().ref('users/' + uid + '/zips/' + zip).update({
+                activated: false
             });
             return resolve();
         }

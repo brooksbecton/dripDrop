@@ -7,9 +7,9 @@ function saveNewUserZip(uid, zip) {
         if (uid === undefined || zip === undefined) {
             reject(new Error("UID or Zip not defined"));
         } else {
-            firebase.database().ref('usersZip/' + uid + '/' + zip).set({
-                dateAdded: new Date(),
-                dateEdited: new Date(),
+            firebase.database().ref('users/' + uid + '/zips/' + zip).set({
+                dateAdded: Date.now(),
+                dateEdited: Date.now(),
                 activated: true
             });
             return resolve();
