@@ -3,3 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(action="/usersZip/save", method="post")
+    input(type="text", name="zip", placeholder="Zip")
+    br
+    input(type="text", name="uid", placeholder="User's ID")
+    br
+    input(type="submit")
