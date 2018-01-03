@@ -5,6 +5,29 @@ block content
   form(action="/usersZip/save", method="post")
     input(type="text", name="zip", placeholder="Zip")
     br
-    input(type="text", name="uid", placeholder="User's ID")
+    input#uidInput(type="text", name="uid", placeholder="User's ID")
     br
-    input(type="submit")
+    input(type="submit", id="submitButton")
+
+    p#signedInError.hidden You must be signed in to add a zip
+
+    script.
+      var config = {
+        apiKey: "AIzaSyB06clFp1xMfJw13d7gexxqQ6SvbooXa1o",
+        authDomain: "dripdrop-de1e0.firebaseapp.com",
+      };
+  
+      firebase.initializeApp(config);
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          document.getElementById("uidInput").value = user.uid;
+          document.getElementById("uidInput").readOnly = true;
+        } else {
+          // No user is signed in.
+          document.getElementById("submitButton").disabled = true;
+          document.getElementById("signedInError").style.display = "block";
+        }
+      });
+

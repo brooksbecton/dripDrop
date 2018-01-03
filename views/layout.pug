@@ -3,5 +3,15 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css')
+    script(src='https://www.gstatic.com/firebasejs/4.8.1/firebase.js')
+    script(src='https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js')
   body
+    ul
+      li
+        a(href="/") Home
+      li
+        a(href="signIn") Sign In
+        
     block content
+    
