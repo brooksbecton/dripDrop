@@ -1,8 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 dripDrop
   form(action="/usersZip/save", method="post")
     input(type="text", name="zip", placeholder="Zip")
     br

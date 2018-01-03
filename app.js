@@ -12,6 +12,11 @@ const users = require('./routes/users');
 const usersZip = require('./routes/usersZip');
 const weather = require('./routes/weather');
 
+const startJobs = require('./lib/jobs/index')
+
+// Starting recurring jobs
+startJobs();
+
 const app = express();
 
 // view engine setup
