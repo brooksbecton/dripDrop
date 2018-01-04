@@ -17,7 +17,6 @@ admin.initializeApp({
 require("dotenv").config();
 
 const index = require("./routes/index");
-const users = require("./routes/users");
 const usersZip = require("./routes/usersZip");
 const weather = require("./routes/weather");
 
@@ -45,7 +44,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", index);
-app.use("/users", users);
 app.use("/api/usersZip", usersZip);
 app.use("/api/weather", weather);
 
