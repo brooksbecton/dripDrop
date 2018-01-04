@@ -4,7 +4,7 @@ const firebase = require("./../../lib/firebase");
 
 function saveNewUserZip(uid, zip) {
   return new Promise((resolve, reject) => {
-    if (zip === undefined) {
+    if (!zip) {
       reject(new Error("zip not defined"));
     } else {
       firebase
@@ -24,9 +24,6 @@ function saveNewUserZip(uid, zip) {
 router.post("/", (req, res, next) => {
   const uid = res.locals.user.uid;
   const zip = req.body.zip;
-
-  console.log(uid);
-  console.log(req.body);
 
   saveNewUserZip(uid, zip)
     .then(() => {
