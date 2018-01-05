@@ -6,8 +6,8 @@ const welcome = require("./pages/welcome");
 const zips = require("./pages/zips");
 
 //Pages
-router.get("/", welcome);
-router.get("/zips", zips);
-router.get("/signIn", signIn);
+router.use("/", welcome);
+router.use("/zips", zips);
+router.use("/signIn", signIn);
 
 module.exports = router;
