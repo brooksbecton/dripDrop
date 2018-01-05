@@ -1,19 +1,13 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-/* GET home page. */
-router.get("/", function(req, res, next) {
-  res.render("index");
-});
+const signIn = require("./pages/signIn");
+const welcome = require("./pages/welcome");
+const zips = require("./pages/zips");
 
-/* GET sign in page. */
-router.get("/signIn", function(req, res, next) {
-  res.render("signIn");
-});
-
-/* GET zips page. */
-router.get("/zips", function(req, res, next) {
-  res.render("zips");
-});
+//Pages
+router.get("/", welcome);
+router.get("/zips", zips);
+router.get("/signIn", signIn);
 
 module.exports = router;
