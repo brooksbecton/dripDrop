@@ -18,12 +18,11 @@ function getUsersZips(uid) {
 }
 
 // Get a user's zips
-router.get("/", (req, res, next) => {
-  const uid = res.locals.user.uid;
+router.get("/:uid", (req, res, next) => {
+  const uid = req.params.uid;
   getUsersZips(uid)
     .then(zips => {
-      console.log(zips);
-      res.send(JSON.stringify(zips));
+      res.send(zips);
     })
     .catch(error => {
       res.status(400).sendStatus(error);

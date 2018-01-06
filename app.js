@@ -28,7 +28,12 @@ startJobs();
 const app = express();
 
 // Middleware
-app.use("/api", firebaseMiddleware.auth);
+
+// Requiring JWT on these paths
+app.use("/api/weather", firebaseMiddleware.auth);
+app.use("/api/usersZip/activate", firebaseMiddleware.auth);
+app.use("/api/usersZip/deactivate", firebaseMiddleware.auth);
+app.use("/api/usersZip/save", firebaseMiddleware.auth);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

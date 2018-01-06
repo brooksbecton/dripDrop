@@ -15,6 +15,7 @@
     "firebase": "^4.8.1",
     "firebase-admin": "^5.6.0",
     "morgan": "~1.9.0",
+    "node-fetch": "^1.7.3",
     "node-schedule": "^1.2.5",
     "pug": "2.0.0-beta11",
     "request": "^2.83.0",
