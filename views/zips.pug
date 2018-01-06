@@ -1,4 +1,15 @@
 extends layout
 
 block content
+    script(src="js/index.js")
+
     h1 Zips
+
+    script.
+        getUserToken().then(token => {
+            fetch("api/usersZip/get", {
+                headers: {
+                    Authorization: "Bearer " + token,
+                }
+            }).then(resp => resp.text().then(a => console.log(JSON.parse(a))))
+        })

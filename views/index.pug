@@ -3,6 +3,7 @@ extends layout
 block content
 
   script(src="js/index.js")
+  script(src="js/pages/index.js")
 
   h1 dripDrop
   input#zipInput(type="text", name="zip", placeholder="Zip")
@@ -13,13 +14,6 @@ block content
     
 
     script.
-      var config = {
-        apiKey: "AIzaSyB06clFp1xMfJw13d7gexxqQ6SvbooXa1o",
-        authDomain: "dripdrop-de1e0.firebaseapp.com",
-      };
-  
-      firebase.initializeApp(config);
-
       firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
           // No user is signed in.

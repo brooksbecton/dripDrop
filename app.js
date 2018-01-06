@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const firebaseMiddleware = require("express-firebase-middleware");
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./keys/dripdrop-de1e0-firebase-adminsdk-jwaap-b32efb9ffb.json");
+var serviceAccount = require("./keys/admin.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
