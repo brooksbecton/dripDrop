@@ -9,7 +9,14 @@ router.get("/:uid", function(req, res, next) {
 
   fetch(process.env.baseURL + "api/usersZip/get/" + uid)
     .then(resp =>
-      resp.text().then(zips => res.render("zips", { zips: JSON.parse(zips) }))
+      resp.text().then(zips => {
+        if (zips) {
+          zips = JSON.parse(zips);
+        } else {
+          zips = [];
+        }
+        res.render("zips", { zips });
+      })
     )
     .catch(e => res.render(e));
 });

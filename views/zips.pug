@@ -1,9 +1,15 @@
 extends layout
 
 block content
+    script(src='/js/pages/zips.js')
 
     h1 Zips
 
     ul
-    for zip in Object.keys(zips)
-        li= zip
+    if Object.keys(zips).length > 0 
+        for zip in Object.keys(zips)
+            li(id=zip)= zip
+                button(onClick='handleRemove(' + zip + ')') Remove
+    else
+        p No Zips
+        a(href="/") Add Zips

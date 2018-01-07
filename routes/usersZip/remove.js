@@ -5,7 +5,7 @@ const firebase = require("./../../lib/firebase");
 function removeUsersZip(uid, zip) {
   return new Promise((resolve, reject) => {
     if (uid === undefined || zip === undefined) {
-      reject(new Error("Zip not defined"));
+      reject(new Error("uid or zip not defined"));
     } else {
       firebase
         .database()
