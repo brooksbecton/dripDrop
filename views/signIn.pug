@@ -17,11 +17,6 @@ block content
             firebase.auth.PhoneAuthProvider.PROVIDER_ID
         ]
       };
-      var config = {
-      apiKey: "AIzaSyB06clFp1xMfJw13d7gexxqQ6SvbooXa1o",
-      authDomain: "dripdrop-de1e0.firebaseapp.com",
-      };
-  
-      firebase.initializeApp(config);
+      
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       ui.start('#firebaseui-auth-container', uiConfig);
