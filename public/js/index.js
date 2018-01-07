@@ -6,6 +6,22 @@ var config = {
 firebase.initializeApp(config);
 
 /**
+ * Gets the current user's info
+ * @returns Promise
+ */
+function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        return resolve(user);
+      } else {
+        resolve();
+      }
+    });
+  });
+}
+
+/**
  * Returns a promise that will have the currently logged in user's
  * token on resolve
  * @returns Promise

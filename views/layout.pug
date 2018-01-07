@@ -14,7 +14,16 @@ html
       li
         a(href="signIn") Sign In
       li
-        a(href="zips") Zips
+        a#myZips My Zips
+
+      script. 
+        function addUsersZipsLink(uid){
+          document.getElementById("myZips").href = "zips/" + uid
+        }
+
+        getCurrentUser().then(user => {
+          addUsersZipsLink(user.uid);
+        })
         
     block content
     
