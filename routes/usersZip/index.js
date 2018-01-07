@@ -10,10 +10,12 @@ const activate = require("./activate");
 const deactivate = require("./deactivate");
 const get = require("./get");
 const save = require("./save");
+const remove = require("./remove");
 
 router.use("/activate", activate);
 router.use("/deactivate", deactivate);
 router.use("/get", get);
 router.use("/save", save);
+router.use("/remove", remove);
 
 module.exports = router;

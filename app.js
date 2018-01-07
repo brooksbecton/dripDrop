@@ -33,6 +33,7 @@ const app = express();
 app.use("/api/weather", firebaseMiddleware.auth);
 app.use("/api/usersZip/activate", firebaseMiddleware.auth);
 app.use("/api/usersZip/deactivate", firebaseMiddleware.auth);
+app.use("/api/usersZip/remove", firebaseMiddleware.auth);
 app.use("/api/usersZip/save", firebaseMiddleware.auth);
 
 // view engine setup
