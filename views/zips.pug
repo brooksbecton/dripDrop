@@ -5,11 +5,17 @@ block content
 
     h1 Zips
 
-    ul
-    if Object.keys(zips).length > 0 
-        for zip in Object.keys(zips)
-            li(id=zip)= zip
-                button(onClick='handleRemove(' + zip + ')') Remove
+
+    if error
+        script. 
+            console.error("#{error}");
+        p Something went wrong ;/
     else
-        p No Zips
-        a(href="/") Add Zips
+        ul
+        if zips &&  Object.keys(zips).length > 0 
+            for zip in Object.keys(zips)
+                li(id=zip)= zip
+                    button(onClick='handleRemove(' + zip + ')') Remove
+        else
+            p No Zips
+            a(href="/") Add Zips

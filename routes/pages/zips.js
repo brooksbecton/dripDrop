@@ -18,7 +18,9 @@ router.get("/:uid", function(req, res, next) {
         res.render("zips", { zips });
       })
     )
-    .catch(e => res.render(e));
+    .catch(error => {
+      res.render("zips", { error });
+    });
 });
 
 module.exports = router;
