@@ -6,8 +6,9 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const firebaseMiddleware = require("express-firebase-middleware");
 var admin = require("firebase-admin");
+require("dotenv").config();
 
-var serviceAccount = require("./keys/admin.json");
+var serviceAccount = JSON.parse(process.env.firebaseServiceAccount);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
