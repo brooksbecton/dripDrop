@@ -18,7 +18,6 @@ admin.initializeApp({
 require("dotenv").config();
 
 const index = require("./routes/index");
-const notifications = require("./routes/notifications");
 const usersZip = require("./routes/usersZip");
 const weather = require("./routes/weather");
 
@@ -33,7 +32,6 @@ const app = express();
 
 // Requiring JWT on these paths
 app.use("/api/weather", firebaseMiddleware.auth);
-app.use("/api/notifications", firebaseMiddleware.auth);
 app.use("/api/usersZip/activate", firebaseMiddleware.auth);
 app.use("/api/usersZip/deactivate", firebaseMiddleware.auth);
 app.use("/api/usersZip/remove", firebaseMiddleware.auth);
@@ -53,7 +51,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", index);
-app.use("/api/notifications", notifications);
 app.use("/api/usersZip", usersZip);
 app.use("/api/weather", weather);
 
